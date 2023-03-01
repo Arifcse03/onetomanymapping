@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Post and Comment List</title>
+</head>
+<body>
+<h1>Post and Comment List</h1>
+
+<table>
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Title</th>
+    <th>Description</th>
+    <th>Comments</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="post : ${posts}">
+    <td th:text="${post.id}"></td>
+    <td th:text="${post.title}"></td>
+    <td th:text="${post.description}"></td>
+    <td>
+      <ul>
+        <li th:each="comment : ${post.comments}" th:text="${comment.text}"></li>
+      </ul>
+    </td>
+  </tr>
+  </tbody>
+</table>
+</body>
+</html>
