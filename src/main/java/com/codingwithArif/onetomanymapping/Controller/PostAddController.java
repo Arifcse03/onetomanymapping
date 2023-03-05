@@ -37,6 +37,7 @@ public class PostAddController {
     public String showPostAndCommentList(@PathVariable Long id, Model model) {
         List<Map<String, Object>>  queryResultList = postCommentService.executeRawQuery(id);
         model.addAttribute("queryResultList", queryResultList);
+        model.addAttribute("id",id);
         return "commnets-by-post";
     }
     @PostMapping("/add-post")
@@ -45,7 +46,7 @@ public class PostAddController {
         return "redirect:/";
     }
 
-    @PostMapping("/addNewComment}")
+    @PostMapping("/addNewComment")
     public String changePname(@RequestParam("id") Long id,
                               @RequestParam("newPcomment") String comment)
     {

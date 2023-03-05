@@ -13,6 +13,7 @@
   <!--    <input type="text" name="query" placeholder="Search...">-->
   <!--    <button type="submit">Search</button>-->
   <!--  </form>-->
+  <p>The ID parameter value is: <span th:text="${id}"></span></p>
 
   <table class="table table-success table-striped">
     <thead>
@@ -31,50 +32,45 @@
       </td>
 
       <td th:text="${row.text}"></td>
+
+
+
+    </tr>
+    <tr>
       <td>
 
-        <!-- Button trigger modal --> <br>
-        <button type="button" class="btn btn-success btn-sm mt-2"
-                data-toggle="modal"
-                th:attr="data-target='#exampleModalCenter'+*{row.pc_fid}">Add New</button> <!-- Modal -->
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Add New</button>
 
-        <div class="modal fade"
-             th:id="*{'exampleModalCenter'+{row.pc_fid}}" tabindex="-1"
-             role="dialog" aria-labelledby="exampleModalCenterTitle"
-             aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered" role="document">
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalCenterTitle">Add new Comment</h5>
-                <button type="button" class="close" data-dismiss="modal"
-                        aria-label="Close">
+                <h4 class="modal-title" id="myModalLabel">New Form</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
-              <div class="modal-body">
-                <form action="/addNewComment" method="post">
+              <form action="/addNewComment" method="post">
+                <div class="modal-body">
+                  <input type="text" name="id" th:value="${id}" />
                   <div class="form-group">
-                   <input type="hidden"
-                                                     th:value="*{row.pc_fid}" class="form-control" name="id">
-                    <input type="text"
-                                                           name="newPcomment" class="form-control"> <br>
-                    <button type="submit" class="btn btn-primary">submit</button>
+
+                    <input type="text" class="form-control" id="newPcomment" name="newPcomment" /><br>
+<!--                    <input type="text"-->
+<!--                           name="newPcomment" class="form-control"> <br>-->
                   </div>
-                </form>
-
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary"
-                        data-dismiss="modal">Close</button>
-
-              </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="submit" class="btn btn-primary">Save changes</button>
+                </div>
+              </form>
             </div>
           </div>
         </div>
 
       </td>
-
-
     </tr>
 
     </tbody>
