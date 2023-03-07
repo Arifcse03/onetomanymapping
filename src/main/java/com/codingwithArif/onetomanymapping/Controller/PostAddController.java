@@ -53,4 +53,20 @@ public class PostAddController {
         postCommentService.addNewProduct(id, comment);
         return "redirect:/posts/"+id;
     }
+    @PostMapping("/addNewPost")
+
+    public String addNewPost(
+                              @RequestParam("newPtitile") String title,  @RequestParam("newPDescri") String des)
+    {
+        postCommentService.addNewPost( title,des);
+        return "redirect:/posts";
+    }
+
+
+    @PostMapping("/deleteComment")
+    public  String DeleteCommentbyId(@RequestParam("cid") Long id){
+        postCommentService.deleteCommentById(id);
+
+        return "redirect:/posts";
+    }
 }

@@ -11,27 +11,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import javax.xml.stream.events.Comment;
 
 @SpringBootApplication
-public class OnetomanymappingApplication implements CommandLineRunner {
+public class OnetomanymappingApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(OnetomanymappingApplication.class, args);
+	SpringApplication.run(OnetomanymappingApplication.class, args);
 	}
-	@Autowired
-private PostRepository postRepository;
 
-	@Override
-	public void run(String... args) throws Exception {
-
-//		Post post = new Post("one to many mapping using JPA and hibernate 11", "one to many mapping using JPA and hibernate 1");
-//
-//		Comments comment1 = new Comments("Very useful 11");
-//		Comments comment2 = new Comments("informative 11");
-//		Comments comment3 = new Comments("Great post 11");
-//
-//		post.getComments().add(comment1);
-//		post.getComments().add(comment2);
-//		post.getComments().add(comment3);
-//
-//		this.postRepository.save(post);
-	}
 }
